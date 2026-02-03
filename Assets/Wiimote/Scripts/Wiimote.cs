@@ -167,19 +167,19 @@ public class Wiimote
             _Type = WiimoteType.WIIMOTEPLUS;    // or a different PID as an identifier.  Instead they have a different WMP extension identifier.
                                                 // It occurs on some of the oldest Wii Remote Pluses available (pre-2012).
 
-        for (int x = 0; x < data.Length; x++)
-        {
-            // [x != 4] is necessary because byte 5 of the identifier changes based on the state of the remote
-            // It is 0x00 on startup, 0x04 when deactivated, 0x05 when deactivated nunchuck passthrough,
-            // and 0x07 when deactivated classic passthrough
-            //
-            // [x != 0] is necessary due to the inconsistency noted above.
-            if (x != 4 && x != 0 && data[x] != ID_InactiveMotionPlus[x])
-            {
-                _wmp_attached = false;
-                return;
-            }
-        }
+        // for (int x = 0; x < data.Length; x++)
+        // {
+        //     // [x != 4] is necessary because byte 5 of the identifier changes based on the state of the remote
+        //     // It is 0x00 on startup, 0x04 when deactivated, 0x05 when deactivated nunchuck passthrough,
+        //     // and 0x07 when deactivated classic passthrough
+        //     //
+        //     // [x != 0] is necessary due to the inconsistency noted above.
+        //     if (x != 4 && x != 0 && data[x] != ID_InactiveMotionPlus[x])
+        //     {
+        //         _wmp_attached = false;
+        //         return;
+        //     }
+        // }
         _wmp_attached = true;
     }
 

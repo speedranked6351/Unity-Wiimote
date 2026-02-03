@@ -20,7 +20,9 @@ public class WiimoteDemo : MonoBehaviour {
 
     private Vector3 wmpOffset = Vector3.zero;
 
-    void Start() {
+    void Start()
+    {
+        WiimoteManager.Debug_Messages = true;
         initial_rotation = model.rot.localRotation;
     }
 
