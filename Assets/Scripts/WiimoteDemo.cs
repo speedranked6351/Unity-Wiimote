@@ -37,9 +37,9 @@ public class WiimoteDemo : MonoBehaviour {
             ret = wiimote.ReadWiimoteData();
 
             if (ret > 0 && wiimote.current_ext == ExtensionController.MOTIONPLUS) {
-                Vector3 offset = new Vector3(  -wiimote.MotionPlus.PitchSpeed,
-                                                wiimote.MotionPlus.YawSpeed,
-                                                wiimote.MotionPlus.RollSpeed) / 95f; // Divide by 95Hz (average updates per second from wiimote)
+                Vector3 offset = new Vector3(  wiimote.MotionPlus.PitchSpeed,
+                                                -wiimote.MotionPlus.YawSpeed,
+                                                -wiimote.MotionPlus.RollSpeed) / 95f; // Divide by 95Hz (average updates per second from wiimote)
                 wmpOffset += offset;
 
                 model.rot.Rotate(offset, Space.Self);
